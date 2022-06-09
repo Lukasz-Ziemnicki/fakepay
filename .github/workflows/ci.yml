@@ -1,0 +1,43 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linters:
+    name: Rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Rubocop checks
+        run: |
+          bundle exec rubocop
+
+  vulnerabilities:
+    name: Brakeman check
+    needs: linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Brakeman report
+        uses: reviewdog/action-brakeman@v2
+        with:
+          brakeman_version: 5.2.2
+          github_token: ${{ secrets.github_token }}
+          fail_on_error: true

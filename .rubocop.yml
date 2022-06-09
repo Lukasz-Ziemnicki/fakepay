@@ -1,0 +1,12 @@
+require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - bin/*
+    - db/migrate/*
+    - db/schema.rb
+    - lib/tasks/auto_annotate_models.rake
+
+Style/Documentation:
+  Enabled: false

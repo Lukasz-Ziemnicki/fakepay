@@ -1,5 +1,7 @@
 # Fakepay integration
 
+[![Linter Breakman](https://github.com/Lukasz-Ziemnicki/fakepay/actions/workflows/ci.yml/badge.svg)](https://github.com/Lukasz-Ziemnicki/fakepay/actions) &nbsp;
+
 `Maxio/Chargify` job interview task.
 
 # Table of contents
@@ -37,8 +39,9 @@ Check how does it work locally using `curl`.
 curl -d '@data.json' -H 'Content-Type: application/json' -X POST http://localhost:3000/api/v1/customer_subscriptions
 ```
 
-or any other favourite tool.\
-`data.json` file in the project root possess correct schema with data passed to Rails app (adjust only `subscription_id` with correct `UUID` value generated during subscriptions seeding).
+or any other favourite tool.
+
+`data.json` file in the project root possess correct request body structure with data passed to Rails app (adjust only `subscription_id` with correct `UUID` value generated during subscriptions seeding).
 
 ## Tests coverage
 

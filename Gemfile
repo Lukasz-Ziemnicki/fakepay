@@ -61,15 +61,9 @@ group :development, :test do
   gem 'annotate'
 
   #
-  # Rspec
-  #
-  gem 'rspec-rails', '~> 5.0.0'
-
-  #
   # Rubocop linter
   #
   gem 'rubocop-rails'
-  gem 'rubocop-rspec'
 
   #
   # Debugger

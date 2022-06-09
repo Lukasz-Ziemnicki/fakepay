@@ -21,9 +21,12 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: Rubocop checks
-        run: |
-          bundle exec rubocop
+      - name: rubocop
+        uses: reviewdog/action-rubocop@v2
+        with:
+          rubocop_version: gemfile
+          rubocop_extensions: rubocop-rails:gemfile
+          reporter: github-pr-review
 
   vulnerabilities:
     name: Brakeman check

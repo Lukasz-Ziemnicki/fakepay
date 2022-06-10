@@ -4,9 +4,9 @@ module Api
   module V1
     class CustomerSubscriptionsController < ApplicationController
       def show
-        customer_service = CustomerSubscription.find(params[:id])
+        customer_subscription = CustomerSubscription.find(params[:id])
 
-        render json: CustomerSubscriptionSerializer.render(customer_service),
+        render json: CustomerSubscriptionSerializer.render(customer_subscription),
                status: :ok
       end
 

@@ -18,7 +18,7 @@ module Api
 
         render json: CustomerSubscriptionSerializer.render(customer_subscription),
                location: api_v1_customer_subscription_path(customer_subscription),
-               status: :ok
+               status: :created
       end
 
       private

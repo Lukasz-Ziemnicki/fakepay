@@ -18,6 +18,7 @@ module Fakepay
       CustomerSubscription.active
                           .with_customer_and_subscription
                           .where(renewed_at: last_payment_date)
+                          .or(CustomerSubscription.created_on_date(last_payment_date))
                           .find_each do |customer_subscription|
         renew!(customer_subscription)
       end

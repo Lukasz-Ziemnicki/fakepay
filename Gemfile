@@ -61,9 +61,35 @@ group :development, :test do
   gem 'annotate'
 
   #
+  # RSpec
+  #
+  gem 'rspec-rails', '~> 6.0.0.rc1'
+
+  #
   # Rubocop linter
   #
   gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+
+  #
+  # Objects creation for specs
+  #
+  gem 'factory_bot_rails'
+
+  #
+  # Fake data for specs
+  #
+  gem 'faker'
+
+  #
+  # Cleaning database
+  #
+  gem 'database_cleaner-active_record'
+
+  #
+  # External APIs requests stubbing
+  #
+  gem 'webmock'
 
   #
   # Debugger

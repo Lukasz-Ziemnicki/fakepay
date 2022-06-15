@@ -18,8 +18,11 @@
 #  index_customer_subscriptions_on_subscription_id  (subscription_id)
 #  index_on_customer_id_subscription_id             (customer_id,subscription_id) UNIQUE
 #
-class CustomerSubscriptionSerializer < BaseSerializer
-  fields :created_at
+FactoryBot.define do
+  factory :customer_subscription do
+    status { :active }
 
-  association :subscription, blueprint: SubscriptionSerializer
+    customer
+    subscription
+  end
 end

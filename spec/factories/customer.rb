@@ -13,14 +13,16 @@
 #  zip_code      :string(255)      not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#
-class CustomerSerializer < BaseSerializer
-  fields :created_at,
-         :city,
-         :first_name,
-         :last_name,
-         :street,
-         :zip_code
+FactoryBot.define do
+  factory :customer do
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    street { Faker::Address.street_address }
+    zip_code { Faker::Address.zip_code }
+    city { Faker::Address.city }
 
-  association :customer_subscriptions, blueprint: CustomerSubscriptionSerializer
+    trait :with_token do
+      fakepay_token { Faker::Internet.device_token }
+    end
+  end
 end

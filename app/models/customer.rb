@@ -16,7 +16,7 @@
 #
 class Customer < ApplicationRecord
   #
-  # Assocations
+  # Associations
   #
   has_many :customer_subscriptions, dependent: :destroy
   has_many :subscriptions, through: :customer_subscriptions
@@ -30,4 +30,6 @@ class Customer < ApplicationRecord
             :zip_code,
             :city,
             presence: true
+
+  accepts_nested_attributes_for :customer_subscriptions
 end

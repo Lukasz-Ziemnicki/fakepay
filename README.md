@@ -36,7 +36,7 @@ rails db:create && rails db:migrate:with_data
 
 Check how does it work locally using `curl`.
 ```
-curl -d '@data.json' -H 'Content-Type: application/json' -X POST http://localhost:3000/api/v1/customer_subscriptions
+curl -d '@data.json' -H 'Content-Type: application/json' -X POST http://localhost:3000/api/v1/customers
 ```
 
 or any other favourite tool.
@@ -45,4 +45,4 @@ or any other favourite tool.
 
 ## Tests coverage
 
-:microscope: &nbsp; Of course should be tested, but I run out of time. Definitely I would use: [RSpec for Rails 5+](https://github.com/rspec/rspec-rails).
+:microscope: &nbsp; Tested with: [RSpec for Rails 6+](https://github.com/rspec/rspec-rails).

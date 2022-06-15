@@ -14,17 +14,9 @@
 #
 #  index_subscriptions_on_name  (name) UNIQUE
 #
-class Subscription < ApplicationRecord
-  #
-  # Associations
-  #
-  has_many :customer_subscriptions, dependent: :restrict_with_exception
-  has_many :customers, through: :customer_subscriptions
-
-  #
-  # Validations
-  #
-  validates :price_per_month_in_cents,
-            :name,
-            presence: true
+FactoryBot.define do
+  factory :subscription do
+    name { Faker::Commerce.product_name }
+    price_per_month_in_cents { Faker::Commerce.price(range: 0..10_000) }
+  end
 end

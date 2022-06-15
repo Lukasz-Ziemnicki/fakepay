@@ -1,14 +1,15 @@
 {
-  "customer_subscription": {
-    "customer_id": "",
-    "subscription_id": "a8461be7-6a92-4701-bd00-980180556611",
-    "customer": {
-      "first_name": "Payment",
-      "last_name": "Incash",
-      "street": "Payment 12",
-      "city": "Liberty City",
-      "zip_code": "00008"
-    }
+  "customer": {
+    "customer_subscriptions_attributes": [
+      {
+        "subscription_id": "f6cbc598-9269-45df-a8a1-9c4605d9fcbf"
+      }
+    ],
+    "first_name": "Payment",
+    "last_name": "Incash",
+    "street": "Payment 12",
+    "city": "Liberty City",
+    "zip_code": "00008"
   },
   "billing_details": {
     "card_number": "0001-0001-0001-0001",

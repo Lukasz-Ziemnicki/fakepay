@@ -5,6 +5,7 @@
 # Table name: customer_subscriptions
 #
 #  id              :uuid             not null, primary key
+#  renewed_at      :date
 #  status          :integer          default("active"), not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -18,9 +19,6 @@
 #  index_on_customer_id_subscription_id             (customer_id,subscription_id) UNIQUE
 #
 class CustomerSubscription < ApplicationRecord
-  delegate :price_per_month_in_cents, to: :subscription
-  delegate :fakepay_token, to: :customer
-
   #
   # Associations
   #
@@ -30,13 +28,14 @@ class CustomerSubscription < ApplicationRecord
   #
   # Validations
   #
-  validates :customer,
-            uniqueness: { scope: :subscription }
+  validates :subscription,
+            uniqueness: { scope: :customer }
 
   #
   # Scopes
   #
   scope :with_customer_and_subscription, -> { includes(:subscription, :customer) }
+  scope :created_on_date, ->(date) { where(created_at: date.all_day) }
 
   #
   #
@@ -46,6 +45,4 @@ class CustomerSubscription < ApplicationRecord
     ceased: 0,
     active: 1
   }
-
-  accepts_nested_attributes_for :customer
 end

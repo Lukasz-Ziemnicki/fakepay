@@ -19,6 +19,9 @@
 #  index_on_customer_id_subscription_id             (customer_id,subscription_id) UNIQUE
 #
 class CustomerSubscription < ApplicationRecord
+  delegate :price_per_month_in_cents, to: :subscription
+  delegate :fakepay_token, to: :customer
+
   #
   # Associations
   #
